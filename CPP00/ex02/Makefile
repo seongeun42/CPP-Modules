@@ -14,11 +14,11 @@ all : $(NAME)
 	
 %.o : %.cpp
 	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADER)
-	@printf "phonebook is making...\n"
+	@printf "recreate is making...\n"
 
 $(NAME) : $(OBJS)
 	@$(CC) $(CFLAG) -o $@ $(OBJS)
-	@printf "${FG_LBLUE}phonebook make success!\n${NO_COLOR}"
+	@printf "${FG_LBLUE}recreate make success!\n${NO_COLOR}"
 
 clean :
 	@rm -f $(OBJS)
