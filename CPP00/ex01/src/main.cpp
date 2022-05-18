@@ -53,8 +53,8 @@ int	selectIndex(int	maxIndex)
 
 int main()
 {
-	int			cmd;
 	int			idx;
+	std::string	cmd;
 	PhoneBook	pb;
 
 	std::cout << "Welcome to Awesome PhoneBook!\n";
@@ -66,17 +66,12 @@ int main()
 		std::cout << "2. SEARCH\n";
 		std::cout << "3. EXIT\n";
 		std::cout << "Enter : ";
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 
-		if (std::cin.eof())
-			return 0;
-
-		switch (cmd)
-		{
-		case 1:
+		if (cmd == "ADD" | cmd == "add" | cmd == "1")
 			pb.addContact(makeInfo());
-			break;
-		case 2:
+		else if (cmd == "SEARCH" | cmd == "search" | cmd == "2")
+		{
 			while (1)
 			{
 				idx = selectIndex(pb.getIndex());
@@ -93,13 +88,11 @@ int main()
 				else
 					pb.printContact(idx - 1);
 			}
-			break;
-		case 3:
-			return 0;
-		default:
-			std::cout << "\nWrong command! Select again!\n";
-			break;
 		}
+		else if (cmd == "EXIT" | cmd == "exit" | cmd == "3" | std::cin.eof())
+			return 0;
+		else
+			std::cout << "\nWrong command! Select again!\n";
 	}
 	return 0;
 }
