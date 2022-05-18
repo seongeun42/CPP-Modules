@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 
@@ -13,3 +14,5 @@ public:
 	~HumanA();
 	void attack();
 };
+
+#endif
