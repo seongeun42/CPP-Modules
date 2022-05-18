@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:02 by seongele          #+#    #+#             */
-/*   Updated: 2022/05/18 15:58:03 by seongele         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:31:46 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ Fixed::Fixed() : value(0)
 	std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const int value) : value(value)
+Fixed::Fixed(const int v) : value(v)
 {
 }
 
-Fixed::Fixed(const float value) : value(value)
+Fixed::Fixed(const float v) : value(v)
 {
 }
 

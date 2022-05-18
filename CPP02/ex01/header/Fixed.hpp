@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:06 by seongele          #+#    #+#             */
-/*   Updated: 2022/05/18 15:58:07 by seongele         ###   ########.fr       */
+/*   Updated: 2022/05/18 16:31:29 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ private:
 
 public:
 	Fixed();
-	Fixed(const int value);
-	Fixed(const float value);
+	Fixed(const int v);
+	Fixed(const float v);
 	Fixed(const Fixed& fixed);
 	~Fixed();
 	
