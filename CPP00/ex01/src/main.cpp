@@ -56,6 +56,9 @@ int main()
 		std::cout << "Enter : ";
 		std::cin >> cmd;
 
+		if (std::cin.eof())
+			return 0;
+
 		switch (cmd)
 		{
 		case 1:
