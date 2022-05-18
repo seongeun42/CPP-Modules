@@ -1,6 +1,6 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = fixedToward
+NAME = fixed
 SRCS = src/Fixed.cpp \
 		src/main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -14,11 +14,11 @@ all : $(NAME)
 	
 %.o : %.cpp
 	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(HEADER)
-	@printf "fixedToward is making...\n"
+	@printf "fixed is making...\n"
 
 $(NAME) : $(OBJS)
 	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
-	@printf "${FG_LBLUE}fixedToward make success!\n${NO_COLOR}"
+	@printf "${FG_LBLUE}fixed make success!\n${NO_COLOR}"
 
 clean :
 	@rm -f $(OBJS)
