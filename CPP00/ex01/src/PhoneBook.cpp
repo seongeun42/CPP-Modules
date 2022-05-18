@@ -34,21 +34,34 @@ void	PhoneBook::addContact(std::string *info)
 	}
 }
 
-void	PhoneBook::printContact(int idx)
+void	PhoneBook::printContactAll()
 {
 	std::cout << "|-------------------------------------------|\n";
 	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	std::cout << "|----------|----------|----------|----------|\n";
-	std::cout << "|";
-	std::cout.width(10);
-	std::cout << idx + 1 << "|";
-	std::cout.width(10);
-	std::cout << this->contacts[idx].getFirstName() << "|";
-	std::cout.width(10);
-	std::cout << this->contacts[idx].getLastName() << "|";
-	std::cout.width(10);
-	std::cout << this->contacts[idx].getNickname() << "|\n";
-	std::cout << "|-------------------------------------------|\n\n";
+	for (int i = 0; i < this->index; i++)
+	{
+		std::cout << "|";
+		std::cout.width(10);
+		std::cout << i + 1 << "|";
+		std::cout.width(10);
+		std::cout << this->contacts[i].getFirstName(1) << "|";
+		std::cout.width(10);
+		std::cout << this->contacts[i].getLastName(1) << "|";
+		std::cout.width(10);
+		std::cout << this->contacts[i].getNickname(1) << "|\n";
+		std::cout << "|-------------------------------------------|\n";
+	}
+}
+
+void	PhoneBook::printContact(int idx)
+{
+	std::cout << "|Index     | " << this->contacts[idx].getFirstName(0) << "\n";
+	std::cout << "|First Name| " << this->contacts[idx].getLastName(0) << "\n";
+	std::cout << "|Last Name | " << this->contacts[idx].getNickname(0) << "\n";
+	std::cout << "|Nickname  | " << this->contacts[idx].getPhone(0) << "\n";
+	std::cout << "|Phone     | " << this->contacts[idx].getSecret(0) << "\n";
+	std::cout << "|Secret    | " << this->contacts[idx].getSecret(0) << "\n";
 }
 
 int		PhoneBook::getIndex()

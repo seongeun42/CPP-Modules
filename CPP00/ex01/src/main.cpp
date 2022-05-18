@@ -12,27 +12,39 @@
 
 #include "PhoneBook.hpp"
 
+void	replaceSpace(std::string& s)
+{
+	for (int i = 0; s[i]; i++)
+	{
+		if (s[i] >= 9 && s[i] <= 13)
+			s[i] = ' ';
+	}
+}
+
 std::string*	makeInfo()
 {
 	std::string	*info = new std::string[5]();
 	
-	std::cout << "Input your first name (ex. Kim) : ";
-	std::cin >> info[0];
+	std::cout << "\nInput your first name (ex. Kim) : ";
+	std::getline(std::cin, info[0]);
 	std::cout << "Input your last name (ex. Seoul) : ";
-	std::cin >> info[1];
+	std::getline(std::cin, info[1]);
 	std::cout << "Input your nickname (ex. bear) : ";
-	std::cin >> info[2];
+	std::getline(std::cin, info[2]);
 	std::cout << "Input your phone number (ex. 010-1234-5678) : ";
-	std::cin >> info[3];
+	std::getline(std::cin, info[3]);
 	std::cout << "Input your darkest secret (ex. crying) : ";
-	std::cin >> info[4];
+	std::getline(std::cin, info[4]);
+	
+	for (int i = 0; i < 5; i++)
+		replaceSpace(info[i]);
 
 	return info;
 }
 
 int	selectIndex(int	maxIndex)
 {
-	int	idx;
+	int idx;
 
 	if (maxIndex == 0)
 		return -1;
@@ -47,11 +59,12 @@ int	selectIndex(int	maxIndex)
 		std::cout << "Or enter the index you want to search for (1 ~ " << maxIndex << ") : ";
 		std::cin >> idx;
 	}
+	std::cin.ignore(1);
 	
 	return idx;
 }
 
-int main()
+int	main()
 {
 	int			idx;
 	std::string	cmd;
@@ -72,22 +85,14 @@ int main()
 			pb.addContact(makeInfo());
 		else if (cmd == "SEARCH" | cmd == "search" | cmd == "2")
 		{
-			while (1)
-			{
-				idx = selectIndex(pb.getIndex());
-				if (idx == -1)
-				{
-					std::cout << "\nCurrent PhoneBook is empty!\n";
-					break;
-				}
-				else if (idx == 0)
-				{
-					std::cout << "\nReturn command selection!\n";
-					break;
-				}
-				else
-					pb.printContact(idx - 1);
-			}
+			pb.printContactAll();
+			idx = selectIndex(pb.getIndex());
+			if (idx == -1)
+				std::cout << "\nCurrent PhoneBook is empty!\n";
+			else if (idx == 0)
+				std::cout << "\nReturn command selection!\n";
+			else
+				pb.printContact(idx - 1);
 		}
 		else if (cmd == "EXIT" | cmd == "exit" | cmd == "3" | std::cin.eof())
 			return 0;

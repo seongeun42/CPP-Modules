@@ -26,6 +26,7 @@ public:
 	~PhoneBook();
 	void	addContact(std::string *info);
 	void	printContact(int idx);
+	void	printContactAll();
 	int		getIndex();
 };
 

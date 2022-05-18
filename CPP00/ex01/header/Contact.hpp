@@ -22,16 +22,18 @@ private:
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
-	std::string	phone_number;
-	std::string	darkest_secret;
+	std::string	phone;
+	std::string	secret;
 
 public:
 	Contact();
 	~Contact();
 	Contact(std::string *field);
-	std::string	getFirstName();
-	std::string	getLastName();
-	std::string	getNickname();
+	std::string	getFirstName(int mod);
+	std::string	getLastName(int mod);
+	std::string	getNickname(int mod);
+	std::string getPhone(int mod);
+	std::string getSecret(int mod);
 };
 
 #endif
