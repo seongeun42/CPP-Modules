@@ -1,5 +1,5 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = zombie
 SRCS = src/Zombie.cpp \
 		src/newZombie.cpp \
@@ -15,11 +15,11 @@ NO_COLOR   = \e[0m
 all : $(NAME)
 	
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADER)
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(HEADER)
 	@printf "zombie is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CFLAG) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}zombie make success!\n${NO_COLOR}"
 
 clean :

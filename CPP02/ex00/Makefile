@@ -1,6 +1,6 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = fixed
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+NAME = fixedToward
 SRCS = src/Fixed.cpp \
 		src/main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -13,12 +13,12 @@ NO_COLOR   = \e[0m
 all : $(NAME)
 	
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADER)
-	@printf "fixed is making...\n"
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(HEADER)
+	@printf "fixedToward is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAG) -o $@ $(OBJS)
-	@printf "${FG_LBLUE}fixed make success!\n${NO_COLOR}"
+	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@printf "${FG_LBLUE}fixedToward make success!\n${NO_COLOR}"
 
 clean :
 	@rm -f $(OBJS)

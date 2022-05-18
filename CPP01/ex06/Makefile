@@ -1,5 +1,5 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = harlFilter
 SRCS = src/Harl.cpp \
 		src/main.cpp
@@ -13,11 +13,11 @@ NO_COLOR   = \e[0m
 all : $(NAME)
 	
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADER)
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(HEADER)
 	@printf "harlFilter is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}harlFilter make success!\n${NO_COLOR}"
 
 clean :

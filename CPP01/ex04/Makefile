@@ -1,5 +1,5 @@
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = replace
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -12,11 +12,11 @@ NO_COLOR   = \e[0m
 all : $(NAME)
 	
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c -o $@ $< $(HEADER)
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< $(HEADER)
 	@printf "replace is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}replace make success!\n${NO_COLOR}"
 
 clean :
