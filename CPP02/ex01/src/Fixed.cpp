@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:02 by seongele          #+#    #+#             */
-/*   Updated: 2022/05/18 16:31:46 by seongele         ###   ########.fr       */
+/*   Updated: 2022/05/22 21:26:41 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ Fixed::Fixed() : value(0)
 	std::cout << "Default constructor called\n";
 }
 
-Fixed::Fixed(const int v) : value(v)
+Fixed::Fixed(const int v) : value(v << Fixed::bit)
 {
+	std::cout << "Int constructor called\n";
 }
 
-Fixed::Fixed(const float v) : value(v)
+Fixed::Fixed(const float v) : value((int) roundf(v * (1 << Fixed::bit)))
 {
+	std::cout << "Float constructor called\n";
 }
 
 Fixed::Fixed(const Fixed& fixed)
@@ -57,15 +59,16 @@ int Fixed::getRawBits() const
 
 float Fixed::toFloat() const
 {
-
+	return (this->value / (float) (1 << Fixed::bit));
 }
 
 int Fixed::toInt() const
 {
-
+	return this->value >> Fixed::bit;
 }
 
 std::ostream& operator<<(std::ostream &os, const Fixed& fixed)
 {
-
+	os << fixed.toFloat();
+	return os;
 }
