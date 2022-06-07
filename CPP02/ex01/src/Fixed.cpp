@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:02 by seongele          #+#    #+#             */
-/*   Updated: 2022/05/22 21:26:41 by seongele         ###   ########.fr       */
+/*   Updated: 2022/06/07 23:22:41 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Fixed::~Fixed()
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
 	std::cout << "Copy assignment operator called\n";
-	this->value = fixed.getRawBits();
+	this->value = fixed.value;
 	return *this;
 }
 
