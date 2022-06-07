@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:02 by seongele          #+#    #+#             */
-/*   Updated: 2022/05/25 11:14:53 by seongele         ###   ########.fr       */
+/*   Updated: 2022/06/07 22:51:16 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ const Fixed& Fixed::max(const Fixed& v1, const Fixed& v2)
 
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
-	this->value = fixed.getRawBits();
+	this->value = fixed.value;
 	return *this;
 }
 
