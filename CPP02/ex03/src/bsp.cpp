@@ -26,5 +26,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	int aa = calcTriangle(point, b, c);
 	int bb = calcTriangle(a, point, c);
 	int cc = calcTriangle(a, b, point);
+	if (!aa || !bb || !cc)
+		return false;
 	return target == aa + bb + cc;
 }
