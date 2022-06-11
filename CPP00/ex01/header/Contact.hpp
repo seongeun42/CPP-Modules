@@ -29,11 +29,11 @@ public:
 	Contact();
 	~Contact();
 	Contact(std::string *field);
-	std::string	getFirstName(int mod);
-	std::string	getLastName(int mod);
-	std::string	getNickname(int mod);
-	std::string getPhone(int mod);
-	std::string getSecret(int mod);
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getNickname();
+	std::string getPhone();
+	std::string getSecret();
 };
 
 #endif

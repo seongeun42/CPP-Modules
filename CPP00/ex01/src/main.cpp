@@ -12,15 +12,6 @@
 
 #include "PhoneBook.hpp"
 
-void	replaceSpace(std::string& s)
-{
-	for (int i = 0; s[i]; i++)
-	{
-		if (s[i] >= 9 && s[i] <= 13)
-			s[i] = ' ';
-	}
-}
-
 std::string*	makeInfo()
 {
 	std::string	*info = new std::string[5]();
@@ -35,9 +26,6 @@ std::string*	makeInfo()
 	std::getline(std::cin, info[3]);
 	std::cout << "Input your darkest secret (ex. crying) : ";
 	std::getline(std::cin, info[4]);
-	
-	for (int i = 0; i < 5; i++)
-		replaceSpace(info[i]);
 
 	return info;
 }

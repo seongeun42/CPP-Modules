@@ -12,6 +12,15 @@
 
 #include "PhoneBook.hpp"
 
+static void	replaceSpace(std::string& s)
+{
+	for (int i = 0; s[i]; i++)
+	{
+		if (s[i] >= 9 && s[i] <= 13)
+			s[i] = ' ';
+	}
+}
+
 PhoneBook::PhoneBook() : index(0)
 {
 }
@@ -36,6 +45,8 @@ void	PhoneBook::addContact(std::string *info)
 
 void	PhoneBook::printContactAll()
 {
+	std::string str;
+
 	std::cout << "|-------------------------------------------|\n";
 	std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
 	std::cout << "|----------|----------|----------|----------|\n";
@@ -44,24 +55,36 @@ void	PhoneBook::printContactAll()
 		std::cout << "|";
 		std::cout.width(10);
 		std::cout << i + 1 << "|";
+
 		std::cout.width(10);
-		std::cout << this->contacts[i].getFirstName(1) << "|";
+		str = this->contacts[i].getFirstName();
+		replaceSpace(str);
+		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		std::cout << str << "|";
+
 		std::cout.width(10);
-		std::cout << this->contacts[i].getLastName(1) << "|";
+		str = this->contacts[i].getLastName();
+		replaceSpace(str);
+		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		std::cout << str << "|";
+
 		std::cout.width(10);
-		std::cout << this->contacts[i].getNickname(1) << "|\n";
+		str = this->contacts[i].getNickname();
+		replaceSpace(str);
+		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		std::cout << str << "|\n";
 		std::cout << "|-------------------------------------------|\n";
 	}
 }
 
 void	PhoneBook::printContact(int idx)
 {
-	std::cout << "|Index     | " << this->contacts[idx].getFirstName(0) << "\n";
-	std::cout << "|First Name| " << this->contacts[idx].getLastName(0) << "\n";
-	std::cout << "|Last Name | " << this->contacts[idx].getNickname(0) << "\n";
-	std::cout << "|Nickname  | " << this->contacts[idx].getPhone(0) << "\n";
-	std::cout << "|Phone     | " << this->contacts[idx].getSecret(0) << "\n";
-	std::cout << "|Secret    | " << this->contacts[idx].getSecret(0) << "\n";
+	std::cout << "|Index     | " << this->contacts[idx].getFirstName() << "\n";
+	std::cout << "|First Name| " << this->contacts[idx].getLastName() << "\n";
+	std::cout << "|Last Name | " << this->contacts[idx].getNickname() << "\n";
+	std::cout << "|Nickname  | " << this->contacts[idx].getPhone() << "\n";
+	std::cout << "|Phone     | " << this->contacts[idx].getSecret() << "\n";
+	std::cout << "|Secret    | " << this->contacts[idx].getSecret() << "\n";
 }
 
 int		PhoneBook::getIndex()

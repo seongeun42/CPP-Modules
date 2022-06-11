@@ -26,42 +26,27 @@ Contact::~Contact()
 {
 }
 
-std::string	Contact::getFirstName(int mod)
+std::string	Contact::getFirstName()
 {
-	if (mod == 1)
-		return this->first_name.length() < 10 ? this->first_name : this->first_name.substr(0, 9) + ".";
-	else
-		return this->first_name;
+	return first_name;
 }
 
-std::string	Contact::getLastName(int mod)
+std::string	Contact::getLastName()
 {
-	if (mod == 1)
-		return this->last_name.length() < 10 ? this->last_name : this->last_name.substr(0, 9) + ".";
-	else
-		return this->last_name;
+	return last_name;
 }
 
-std::string	Contact::getNickname(int mod)
+std::string	Contact::getNickname()
 {
-	if (mod == 1)
-		return this->nickname.length() < 10 ? this->nickname : this->nickname.substr(0, 9) + ".";
-	else
-		return this->nickname;
+	return nickname;
 }
 
-std::string	Contact::getPhone(int mod)
+std::string	Contact::getPhone()
 {
-	if (mod == 1)
-		return this->phone.length() < 10 ? this->phone : this->phone.substr(0, 9) + ".";
-	else
-		return this->phone;
+	return phone;
 }
 
-std::string	Contact::getSecret(int mod)
+std::string	Contact::getSecret()
 {
-	if (mod == 1)
-		return this->secret.length() < 10 ? this->secret : this->secret.substr(0, 9) + ".";
-	else
-		return this->secret;
+	return secret;
 }
