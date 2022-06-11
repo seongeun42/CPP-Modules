@@ -13,7 +13,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = ptr_and_ref
-SRCS = main.cpp
+SRCS = ./main.cpp
 OBJS = $(SRCS:.cpp=.o)
 HEADER = -I./header/
 
