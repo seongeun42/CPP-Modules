@@ -12,10 +12,9 @@
 
 #include "Contact.hpp"
 
-Contact::Contact(std::string *info) : first_name(info[0]), last_name(info[1]), nickname(info[2]),
+Contact::Contact(std::string info[]) : first_name(info[0]), last_name(info[1]), nickname(info[2]),
 	phone(info[3]), secret(info[4])
 {
-	delete[] info;
 }
 
 Contact::Contact()

@@ -12,80 +12,133 @@
 
 #include "PhoneBook.hpp"
 
-std::string*	makeInfo()
+static bool	makeInfo(std::string info[])
 {
-	std::string	*info = new std::string[5]();
-	
 	std::cout << "\nInput your first name (ex. Kim) : ";
 	std::getline(std::cin, info[0]);
+	if (std::cin.eof())
+		return false;
 	std::cout << "Input your last name (ex. Seoul) : ";
 	std::getline(std::cin, info[1]);
+	if (std::cin.eof())
+		return false;
 	std::cout << "Input your nickname (ex. bear) : ";
 	std::getline(std::cin, info[2]);
+	if (std::cin.eof())
+		return false;
 	std::cout << "Input your phone number (ex. 010-1234-5678) : ";
 	std::getline(std::cin, info[3]);
+	if (std::cin.eof())
+		return false;
 	std::cout << "Input your darkest secret (ex. crying) : ";
 	std::getline(std::cin, info[4]);
+	if (std::cin.eof())
+		return false;
 
-	return info;
+	return true;
 }
 
-int	selectIndex(int	maxIndex)
+static bool	isNumber(std::string& num)
 {
-	int idx;
+	for (int i = 0; num[i]; i++)
+		if (num[i] < '0' || num[i] > '9')
+			return false;
+	return true;
+}
+
+static int isValidIdx(std::string& num, int maxIndex)
+{
+	if (num.length() > 1 || num[0] > '0' + maxIndex)
+		return -1;
+	return num[0] - '0';
+}
+
+static int	selectIndex(int	maxIndex)
+{
+	std::string idx;
+	bool isNum;
+	int isValid;
 
 	if (maxIndex == 0)
 		return -1;
 
-	std::cout << "If you want to return to command selection, enter 0.\n";
-	std::cout << "Or enter the index you want to search for (1 ~ " << maxIndex << ") : ";
-	std::cin >> idx;
-	while (idx < 0 || idx > maxIndex)
+	do
 	{
-		std::cout << "\nIndex out of range. Current max index is " << maxIndex << ". Enter again!\n";
 		std::cout << "If you want to return to command selection, enter 0.\n";
-		std::cout << "Or enter the index you want to search for (1 ~ " << maxIndex << ") : ";
-		std::cin >> idx;
-	}
-	std::cin.ignore(1);
-	
-	return idx;
+		std::cout << "Or enter the index you want to search for (1 ~ " << maxIndex << ")\n";
+		std::cout << "\e[96m>> \e[0m";
+		std::getline(std::cin, idx);
+		if (std::cin.eof())
+			return -2;
+		
+		isNum = isNumber(idx);
+		if (!isNum)
+			std::cout << "\n\e[31mInput only NATURAL NUMBER!\e[0m\n";
+		else
+		{
+			isValid = isValidIdx(idx, maxIndex);
+			if (isValid < 0)
+				std::cout << "\n\e[31mIndex out of range. Current max index is " << maxIndex << ". Enter again!\e[0m\n";
+		}
+	} while (isValid < 0 || !isNum);
+
+	return isValid;
 }
 
 int	main()
 {
 	int			idx;
+	std::string info[5];
 	std::string	cmd;
 	PhoneBook	pb;
 
-	std::cout << "Welcome to Awesome PhoneBook!\n";
+	std::cout << "\e[100m\e[96mWelcome to Awesome PhoneBook!\e[0m\n";
 
 	while (1)
 	{
-		std::cout << "\nSelect command!\n";
+		std::cout << "\n\e[32mSelect command!\e[0m\n";
 		std::cout << "1. ADD\n";
 		std::cout << "2. SEARCH\n";
 		std::cout << "3. EXIT\n";
-		std::cout << "Enter : ";
+		std::cout << "\e[96m>> \e[0m";
 		std::getline(std::cin, cmd);
 
-		if (cmd == "ADD" | cmd == "add" | cmd == "1")
-			pb.addContact(makeInfo());
-		else if (cmd == "SEARCH" | cmd == "search" | cmd == "2")
+		if (!cmd.compare("ADD") | !cmd.compare("add") | !cmd.compare("1"))
+		{
+			if (makeInfo(info))
+				pb.addContact(info);
+			else
+			{
+				std::cout << "\e[31mYou press Ctrl + D!\e[0m\n";
+				break;
+			}
+		}
+		else if (!cmd.compare("SEARCH") | !cmd.compare("search") | !cmd.compare("2"))
 		{
 			pb.printContactAll();
 			idx = selectIndex(pb.getIndex());
 			if (idx == -1)
-				std::cout << "\nCurrent PhoneBook is empty!\n";
+				std::cout << "\n\e[31mCurrent PhoneBook is empty!\e[0m\n";
+			else if (idx == -2)
+			{
+				std::cout << "\n\e[31mYou press Ctrl + D!\e[0m\n";
+				break;
+			}
 			else if (idx == 0)
-				std::cout << "\nReturn command selection!\n";
+				std::cout << "\n\e[31mReturn command selection!\e[0m\n";
 			else
 				pb.printContact(idx - 1);
 		}
-		else if (cmd == "EXIT" | cmd == "exit" | cmd == "3" | std::cin.eof())
-			return 0;
+		else if (!cmd.compare("EXIT") | !cmd.compare("exit") | !cmd.compare("3"))
+			break;
+		else if (std::cin.eof())
+		{
+			std::cout << "\e[31mYou press Ctrl + D!\e[0m\n";
+			break;
+		}
 		else
-			std::cout << "\nWrong command! Select again!\n";
+			std::cout << "\n\e[31mWrong command! Select again!\e[0m\n";
 	}
+	std::cout << "\n\e[36mPhoneBook is closed! Bye!\e[0m\n";
 	return 0;
 }

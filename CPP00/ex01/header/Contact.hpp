@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact
 {
@@ -28,7 +29,7 @@ private:
 public:
 	Contact();
 	~Contact();
-	Contact(std::string *field);
+	Contact(std::string info[]);
 	std::string	getFirstName();
 	std::string	getLastName();
 	std::string	getNickname();
