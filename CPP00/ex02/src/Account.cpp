@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include <ctime>
 #include "Account.hpp"
 
@@ -146,19 +147,9 @@ void	Account::_displayTimestamp(void)
 	localtime_r(&current, &now);
 
 	std::cout << "[" << now.tm_year + 1900;
-	std::cout.fill('0');
-	std::cout.width(2);
-	std::cout << now.tm_mon + 1;
-	std::cout.fill('0');
-	std::cout.width(2);
-	std::cout << now.tm_mday << "_";
-	std::cout.fill('0');
-	std::cout.width(2);
-	std::cout << now.tm_hour;
-	std::cout.fill('0');
-	std::cout.width(2);
-	std::cout << now.tm_min;
-	std::cout.fill('0');
-	std::cout.width(2);
-	std::cout << now.tm_sec << "] ";
+	std::cout << std::setfill('0') << std::setw(2) << now.tm_mon + 1;
+	std::cout << std::setfill('0') << std::setw(2) << now.tm_mday << "_";
+	std::cout << std::setfill('0') << std::setw(2) << now.tm_hour;
+	std::cout << std::setfill('0') << std::setw(2) << now.tm_min;
+	std::cout << std::setfill('0') << std::setw(2) << now.tm_sec << "] ";
 }
