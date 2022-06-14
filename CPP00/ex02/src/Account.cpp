@@ -91,7 +91,7 @@ void	Account::makeDeposit(int deposit)
 		<< "index:" << this->_accountIndex
 		<< ";p_amount:" << pre_amount
 		<< ";deposit:" << deposit
-		<< "amount:" << this->_amount
+		<< ";amount:" << this->_amount
 		<< ";nb_deposits:" << this->_nbDeposits << "\n";
 }
 
