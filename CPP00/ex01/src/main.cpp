@@ -66,7 +66,7 @@ static int	selectIndex(int	maxIndex)
 	{
 		std::cout << "If you want to return to command selection, enter 0.\n";
 		std::cout << "Or enter the index you want to search for (1 ~ " << maxIndex << ")\n";
-		std::cout << "\e[96m>> \e[0m";
+		std::cout << "\e[32m>> \e[0m";
 		std::getline(std::cin, idx);
 		if (std::cin.eof())
 			return -2;
@@ -100,7 +100,7 @@ int	main()
 		std::cout << "1. ADD\n";
 		std::cout << "2. SEARCH\n";
 		std::cout << "3. EXIT\n";
-		std::cout << "\e[96m>> \e[0m";
+		std::cout << "\e[32m>> \e[0m";
 		std::getline(std::cin, cmd);
 
 		if (!cmd.compare("ADD") | !cmd.compare("add") | !cmd.compare("1"))
