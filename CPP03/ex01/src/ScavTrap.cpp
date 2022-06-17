@@ -57,7 +57,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& st)
 void ScavTrap::attack(const std::string& target)
 {
 	if (hit_ == 0)
-		std::cout << "☠️ ScavTrap " << name_ << "은(는) 이미 사망했다 ☠️" << std::endl;
+		std::cout << "☠️ ScavTrap " << name_ << "은(는) 이미 사망했다... 공격 못한다... ☠️" << std::endl;
 	else if (energy_ == 0)
 		std::cout << "🚨 ScavTrap " << name_ << "은(는) energy points가 부족하다...! 🚨" << std::endl;
 	else
@@ -72,18 +72,18 @@ void ScavTrap::guardGate()
 {
 	if (hit_ == 0)
 	{
-		std::cout << "☠️ ScavTrap " << name_ << "은(는) 이미 사망했다 ☠️" << std::endl;
+		std::cout << "☠️  ScavTrap " << name_ << "은(는) 이미 사망했다... Gate Keeper 못 한다... ☠️" << std::endl;
 		return;
 	}
 	if (!keeper_)
 	{
 		keeper_ = true;
-		std::cout << "🛡️ ScavTrap " << name_ << "의 Gate Keeper Mode ON! 🛡️" << std::endl;
+		std::cout << "🛡️  ScavTrap " << name_ << "의 Gate Keeper Mode ON! 🛡️" << std::endl;
 	}
 	else
 	{
 		keeper_ = false;
-		std::cout << "🛡️ ScavTrap " << name_ << "의 Gate Keeper Mode OFF... 🛡️" << std::endl;
+		std::cout << "🛡️  ScavTrap " << name_ << "의 Gate Keeper Mode OFF... 🛡️" << std::endl;
 	}
 	
 }
