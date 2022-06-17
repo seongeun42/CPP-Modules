@@ -29,7 +29,7 @@ public:
 	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap& ct);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap& operator=(const ClapTrap& ct);
 
 	void attack(const std::string& target);
