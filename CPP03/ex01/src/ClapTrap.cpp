@@ -12,19 +12,19 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name_("nonamed"), hit_(MAX_HP), energy_(10), damage_(0)
+ClapTrap::ClapTrap() : name_("nonamed"), hit_(10), energy_(10), damage_(0), max_hp_(10)
 {
 	std::cout << "ClapTrap Default Constructor called : " << name_ << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : name_(name), hit_(MAX_HP), energy_(10), damage_(0)
+ClapTrap::ClapTrap(std::string name) : name_(name), hit_(10), energy_(10), damage_(0), max_hp_(10)
 {
 	std::cout << "ClapTrap Constructor for name called : " << name_ << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& ct)
 {
-	std::cout << "ClapTrap Copy Constructor called : " << name_ << std::endl;
+	std::cout << "ClapTrap Copy Constructor called : " << ct.name_ << std::endl;
 	*this = ct;
 }
 
@@ -35,8 +35,8 @@ ClapTrap::~ClapTrap()
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& ct)
 {
-	std::cout << "ClapTrap Assignment Operator called : " << name_ << std::endl;
-
+	std::cout << "ClapTrap Assignment Operator called : " << ct.name_ << std::endl;
+	
 	name_ = ct.name_;
 	hit_ = ct.hit_;
 	energy_ = ct.energy_;
@@ -84,8 +84,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	else
 	{
 		std::cout << "💖 ClapTrap " << name_ << "은(는) " << amount << "의 hp를 회복했다! 💖" << std::endl;
-		if (amount > MAX_HP - hit_)
-			hit_ = MAX_HP;
+		if (amount > max_hp_ - hit_)
+			hit_ = max_hp_;
 		else
 			hit_ += amount;
 		energy_--;

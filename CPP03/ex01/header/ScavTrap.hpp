@@ -15,11 +15,10 @@
 
 #include "ClapTrap.hpp"
 
-#define SCAV_MAX_HP 100
-
 class ScavTrap: public ClapTrap
 {
 private:
+	bool keeper_;
 
 public:
 	ScavTrap();

@@ -16,15 +16,14 @@
 #include <iostream>
 #include <string>
 
-# define MAX_HP 10
-
 class ClapTrap
 {
-private:
+protected:
 	std::string name_;
 	unsigned int hit_;
 	unsigned int energy_;
 	unsigned int damage_;
+	unsigned int max_hp_;
 
 public:
 	ClapTrap();

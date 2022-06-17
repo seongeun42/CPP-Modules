@@ -12,23 +12,25 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap(), keeper_(false)
 {
 	std::cout << "ScavTrap Default Constructor called : " << name_ << std::endl;
-	hit_ = SCAV_MAX_HP;
+	hit_ = 100;
 	energy_ = 50;
 	damage_ = 20;
+	max_hp_ = 100;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), keeper_(false)
 {
 	std::cout << "ScavTrap Constructor for name called : " << name_ << std::endl;
-	hit_ = SCAV_MAX_HP;
+	hit_ = 100;
 	energy_ = 50;
 	damage_ = 20;
+	max_hp_ = 100;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& st)
+ScavTrap::ScavTrap(const ScavTrap& st) : ClapTrap(st)
 {
 	std::cout << "ScavTrap Copy Constructor called : " << name_ << std::endl;
 	*this = st;
@@ -41,12 +43,13 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& st)
 {
-	std::cout << "ScavTrap Assignment Operator called" << std::endl;
+	std::cout << "ScavTrap Assignment Operator called : " << name_ << std::endl;
 
 	name_ = st.name_;
 	hit_ = st.hit_;
 	energy_ = st.energy_;
 	damage_ = st.damage_;
+	keeper_ = st.keeper_;
 	
 	return *this;
 }
@@ -67,12 +70,26 @@ void ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate()
 {
-	std::cout << "🛡️ ScavTrap " << name_ << " Gate Keeper Mode ON! 🛡️" << std::endl;
+	if (hit_ == 0)
+	{
+		std::cout << "☠️ ScavTrap " << name_ << "은(는) 이미 사망했다 ☠️" << std::endl;
+		return;
+	}
+	if (!keeper_)
+	{
+		keeper_ = true;
+		std::cout << "🛡️ ScavTrap " << name_ << "의 Gate Keeper Mode ON! 🛡️" << std::endl;
+	}
+	else
+	{
+		keeper_ = false;
+		std::cout << "🛡️ ScavTrap " << name_ << "의 Gate Keeper Mode OFF... 🛡️" << std::endl;
+	}
 	
 }
 
 void ScavTrap::printStatus()
 {
-	std::cout << "\e[36mScavTrap Status [ name: " << name_ << ", hit: " << hit_
+	std::cout << "\e[32mScavTrap Status [ name: " << name_ << ", hit: " << hit_
 		<< ", engergy: " << energy_ << ", damage: " << damage_ << " ]\e[0m\n";
 }
