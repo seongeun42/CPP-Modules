@@ -56,17 +56,17 @@ void	PhoneBook::printContactAll()
 
 		str = contacts[i].getFirstName();
 		replaceSpace(str);
-		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		str = str.length() <= 10 ? str : str.substr(0, 9) + ".";
 		std::cout << std::setw(10) << str << "|";
 
 		str = contacts[i].getLastName();
 		replaceSpace(str);
-		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		str = str.length() <= 10 ? str : str.substr(0, 9) + ".";
 		std::cout << std::setw(10) << str << "|";
 
 		str = contacts[i].getNickname();
 		replaceSpace(str);
-		str = str.length() < 10 ? str : str.substr(0, 9) + ".";
+		str = str.length() <= 10 ? str : str.substr(0, 9) + ".";
 		std::cout << std::setw(10) << str << "|\e[0m\n";
 	}
 	std::cout << "\e[47m\e[30m└──────────┴──────────┴──────────┴──────────┘\e[0m\n";

@@ -14,26 +14,55 @@
 
 static bool	makeInfo(std::string info[])
 {
-	std::cout << "\nInput your first name (ex. Kim) : ";
-	std::getline(std::cin, info[0]);
-	if (std::cin.eof())
-		return false;
-	std::cout << "Input your last name (ex. Seoul) : ";
-	std::getline(std::cin, info[1]);
-	if (std::cin.eof())
-		return false;
-	std::cout << "Input your nickname (ex. bear) : ";
-	std::getline(std::cin, info[2]);
-	if (std::cin.eof())
-		return false;
-	std::cout << "Input your phone number (ex. 010-1234-5678) : ";
-	std::getline(std::cin, info[3]);
-	if (std::cin.eof())
-		return false;
-	std::cout << "Input your darkest secret (ex. crying) : ";
-	std::getline(std::cin, info[4]);
-	if (std::cin.eof())
-		return false;
+	do
+	{
+		std::cout << "Input your first name (ex. Kim) : ";
+		std::getline(std::cin, info[0]);
+		if (std::cin.eof())
+			return false;
+		if (info[0].empty())
+			std::cout << "\e[31mBlanks are not allowed! Input Again!\e[0m\n";
+	} while (info[0].empty());
+
+	do
+	{
+		std::cout << "Input your last name (ex. Seoul) : ";
+		std::getline(std::cin, info[1]);
+		if (std::cin.eof())
+			return false;
+		if (info[1].empty())
+			std::cout << "\e[31mBlanks are not allowed! Input Again!\e[0m\n";
+	} while (info[1].empty());
+	
+	do
+	{
+		std::cout << "Input your nickname (ex. bear) : ";
+		std::getline(std::cin, info[2]);
+		if (std::cin.eof())
+			return false;
+		if (info[2].empty())
+			std::cout << "\e[31mBlanks are not allowed! Input Again!\e[0m\n";
+	} while (info[2].empty());
+	
+	do
+	{
+		std::cout << "Input your phone number (ex. 010-1234-5678) : ";
+		std::getline(std::cin, info[3]);
+		if (std::cin.eof())
+			return false;
+		if (info[3].empty())
+			std::cout << "\e[31mBlanks are not allowed! Input Again!\e[0m\n";
+	} while (info[3].empty());
+	
+	do
+	{
+		std::cout << "Input your darkest secret (ex. crying) : ";
+		std::getline(std::cin, info[4]);
+		if (std::cin.eof())
+			return false;
+		if (info[4].empty())
+			std::cout << "\e[31mBlanks are not allowed! Input Again!\e[0m\n";
+	} while (info[4].empty());
 
 	return true;
 }
@@ -48,8 +77,10 @@ static bool	isNumber(std::string& num)
 
 static int isValidIdx(std::string& num, int maxIndex)
 {
-	if (num.length() > 1 || num[0] > '0' + maxIndex)
+	if (num.length() == 0)
 		return -1;
+	if (num.length() > 1 || num[0] > '0' + maxIndex)
+		return -2;
 	return num[0] - '0';
 }
 
@@ -77,8 +108,10 @@ static int	selectIndex(int	maxIndex)
 		else
 		{
 			isValid = isValidIdx(idx, maxIndex);
-			if (isValid < 0)
+			if (isValid == -2)
 				std::cout << "\n\e[31mIndex out of range. Current max index is " << maxIndex << ". Enter again!\e[0m\n";
+			else if (isValid == -1)
+				std::cout << "\n\e[31mBlanks are not allowed! Try Again!\e[0m\n";
 		}
 	} while (isValid < 0 || !isNum);
 
