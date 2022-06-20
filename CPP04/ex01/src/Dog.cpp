@@ -16,24 +16,31 @@ Dog::Dog() : Animal()
 {
 	std::cout << "\e[32mDog\e[0m Default Constructor called" << std::endl;
 	type_ = "Dog";
+	brain_ = new Brain();
 }
 
 Dog::Dog(const Dog& dog) : Animal(dog)
 {
 	std::cout << "\e[32mDog\e[0m Copy Constructor called" << std::endl;
-	*this = dog;
+	type_ = dog.getType();
+	brain_ = new Brain(*dog.getBrain());
 }
 
 Dog::~Dog()
 {
 	std::cout << "\e[32mDog\e[0m Destructor called" << std::endl;
+	delete brain_;
 }
 
 Dog& Dog::operator=(const Dog& dog)
 {
 	std::cout << "\e[32mDog\e[0m Assignment Operator called" << std::endl;
 
-	type_ = dog.type_;
+	if (this != &dog)
+	{
+		type_ = dog.getType();
+		*brain_ = *dog.getBrain();
+	}
 
 	return *this;
 }
@@ -41,4 +48,21 @@ Dog& Dog::operator=(const Dog& dog)
 void Dog::makeSound() const
 {
 	std::cout << "< 🐶 Dog > : 멍멍멍멍!!!!!" << std::endl;
+}
+
+const Brain* Dog::getBrain() const
+{
+	return brain_;
+}
+
+void Dog::setBrain(std::string idea)
+{
+	for (int i = 0; i < 100; i++)
+		brain_->setIdea(i, idea);
+}
+
+void Dog::printBrain()
+{
+	for (int i = 0; i < 100; i++)
+		std::cout << "Dog Brain" << i << "'s idea : " << brain_->getIdea(i) << std::endl;
 }

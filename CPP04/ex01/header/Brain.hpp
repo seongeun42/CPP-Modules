@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Brain_HPP
-#define Brain_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+
+#include <iostream>
 
 class Brain
 {
@@ -23,6 +25,9 @@ public:
 	Brain(const Brain& br);
 	~Brain();
 	Brain& operator=(const Brain& br);
+
+	std::string getIdea(size_t idx) const;
+	void setIdea(size_t idx, std::string idea);
 };
 
 #endif

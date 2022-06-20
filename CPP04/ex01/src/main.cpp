@@ -17,53 +17,53 @@
 int main()
 {
 	{
-		std::cout << "========== OK ==========" << std::endl;
-		std::cout << "meta 생성 : " << std::endl;
-		const Animal* meta = new Animal();
-		std::cout << "j 생성 : " << std::endl;
+		std::cout << "========== Default ==========" << std::endl;
+	
 		const Animal* j = new Dog();
-		std::cout << "i 생성 : " << std::endl;
 		const Animal* i = new Cat();
 
-		std::cout <<  "\nmeta의 type : " << meta->getType() << " " << std::endl;
-		std::cout <<  "j의 type : " << j->getType() << " " << std::endl;
-		std::cout <<  "i의 type : " << i->getType() << " \n" << std::endl;
-
-		std::cout << "i의 makeSound : ";
-		i->makeSound(); // will output the cat sound!
-		std::cout << "j의 makeSound : ";
-		j->makeSound();
-		std::cout << "meta의 makeSound : ";
-		meta->makeSound();
-
-		std::cout << "\nmeta 해제 : " << std::endl;
-		delete meta;
-		std::cout << "j 해제 : " << std::endl;
-		delete j;
-		std::cout << "i 해제 : " << std::endl;
+		delete j; //should not create a leak
 		delete i;
 	}
 
+
 	{
-		std::cout << "\n\n========== Wrong ==========" << std::endl;
-		std::cout << "wani 생성 : " << std::endl;
-		const WrongAnimal* wani = new WrongAnimal();
-		std::cout << "wcat 생성 : " << std::endl;
-		const WrongAnimal* wcat = new WrongCat();
+		std::cout << "\n\n========== Animal array ==========" << std::endl;
 
-		std::cout << "\nwani의 type : " << wani->getType() << " " << std::endl;
-		std::cout << "wcat의 type : " << wcat->getType() << " \n" << std::endl;
+		Animal* array[10];
+		for (int i = 0; i < 5; i++)
+			array[i] = new Dog();
+		for (int i = 5; i < 10; i++)
+			array[i] = new Cat();
 
-		std::cout << "wani의 makeSound : ";
-		wani->makeSound();
-		std::cout << "wcat의 makeSound : ";
-		wcat->makeSound();
+		for (int i = 0; i < 10; i++)
+			array[i]->makeSound();
 
-		std::cout << "\nwani 해제 : " << std::endl;
-		delete wani;
-		std::cout << "wcat 해제 : " << std::endl;
-		delete wcat;
+		for (int i = 0; i < 10; i++)
+			delete array[i];
 	}
-	
+
+
+	{
+		std::cout << "\n\n========== Brain Deep Copy ==========" << std::endl;
+		Dog* dog1 = new Dog();
+		Dog* dog2 = new Dog();
+
+		dog1->setBrain("I'm cute dog 1 🐶!!");
+
+		std::cout << "\n********** Dog 1's brain **********" << std::endl;
+		dog1->printBrain();
+		std::cout << "\n********** Dog 2's brain **********" << std::endl;
+		dog2->printBrain();
+
+		std::cout << "\n********** copy after Dog 2's brain **********" << std::endl;
+		*dog2 = *dog1;
+		dog2->printBrain();
+
+		std::cout << "\n========== Dog Destroy! ==========" << std::endl;
+		delete dog1;
+		delete dog2;
+	}
+
 	return 0;
 }
