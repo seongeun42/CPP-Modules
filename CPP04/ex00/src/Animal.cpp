@@ -17,10 +17,9 @@ Animal::Animal() : type_("Animal")
 	std::cout << "Animal Default Constructor called" << std::endl;
 }
 
-Animal::Animal(const Animal& animal)
+Animal::Animal(const Animal& animal) : type_(animal.getType())
 {
 	std::cout << "Animal Copy Constructor called" << std::endl;
-	*this = animal;
 }
 
 Animal::~Animal()
@@ -37,7 +36,7 @@ Animal& Animal::operator=(const Animal& animal)
 	return *this;
 }
 
-std::string Animal::getType() const
+const std::string Animal::getType() const
 {
 	return type_;
 }

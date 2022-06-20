@@ -27,7 +27,7 @@ public:
 	virtual ~Animal();
 	Animal& operator=(const Animal& animal);
 	
-	std::string getType() const;
+	const std::string getType() const;
 
 	virtual void makeSound() const;
 };

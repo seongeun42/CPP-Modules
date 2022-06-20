@@ -21,7 +21,7 @@ Dog::Dog() : Animal()
 Dog::Dog(const Dog& dog) : Animal(dog)
 {
 	std::cout << "\e[32mDog\e[0m Copy Constructor called" << std::endl;
-	*this = dog;
+	type_ = dog.getType();
 }
 
 Dog::~Dog()
