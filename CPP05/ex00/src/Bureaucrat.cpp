@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat() : name_("nonamed"), grade_(150)
 Bureaucrat::Bureaucrat(std::string name, int grade) : name_(name)
 {
 	std::cout << "Bureaucrat Parameter Constructor called" << std::endl;
-	if (grade < GRADE_MIN)
+	if (grade < GRADE_MAX)
 		throw GradeTooHighException();
-	if (grade > GRADE_MAX)
+	if (grade > GRADE_MIN)
 		throw GradeTooLowException();
 	grade_ = grade;
 }
@@ -62,14 +62,14 @@ const int& Bureaucrat::getGrade() const
 
 void Bureaucrat::incrementGrade()
 {
-	if (grade_ < GRADE_MIN + 1)
+	if (grade_ < GRADE_MAX + 1)
 		throw GradeTooHighException();
 	--grade_;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (grade_ > GRADE_MAX - 1)
+	if (grade_ > GRADE_MIN - 1)
 		throw GradeTooLowException();
 	++grade_;
 }
