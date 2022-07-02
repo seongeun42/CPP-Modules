@@ -19,7 +19,9 @@ Convert::Convert() : input_(NULL), value_(0.0), isValid_(false)
 Convert::Convert(std::string input) : input_(input)
 {
 	char* tmp = NULL;
+	// 문자열에서 숫자와 그 외로 분리
 	value_ = std::strtod(input.c_str(), &tmp);
+	// tmp가 f만 있는 게 아니라면 유효하지 않은 문자열로 처리
 	isValid_ = !(*tmp) || (std::strlen(tmp) == 1 && tmp[0] == 'f') ? true : false;
 }
 
