@@ -38,9 +38,9 @@ public:
 	~Convert();
 	Convert& operator=(const Convert& c);
 
-	std::string getInput() const;
-	double getValue() const;
-	bool getIsValid() const;
+	const std::string& getInput() const;
+	const double& getValue() const;
+	const bool& getIsValid() const;
 	
 	char toChar();
 	int toInt();

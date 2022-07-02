@@ -44,17 +44,17 @@ Convert& Convert::operator=(const Convert& c)
 	return *this;
 }
 
-std::string Convert::getInput() const
+const std::string& Convert::getInput() const
 {
 	return input_;
 }
 
-double Convert::getValue() const
+const double& Convert::getValue() const
 {
 	return value_;
 }
 
-bool Convert::getIsValid() const
+const bool& Convert::getIsValid() const
 {
 	return isValid_;
 }
