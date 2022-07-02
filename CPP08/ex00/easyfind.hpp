@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
+
 #include <iostream>
 #include <algorithm>
 
@@ -30,3 +33,5 @@ typename T::iterator easyfind(T& c, int target)
 		throw NotFoundException();
 	return it;
 }
+
+#endif
