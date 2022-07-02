@@ -39,6 +39,7 @@ Base* generate()
 
 void identify(Base* p)
 {
+	// dynamic_cast<*>()가 실패하면 NULL 반환하는 거 이용함
 	if (dynamic_cast<A*>(p))
 		std::cout << "This is A class" << std::endl;
 	else if (dynamic_cast<B*>(p))
@@ -51,6 +52,7 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
+	// dynamic_cast<&>()가 실패하면 exception throw하는 거 이용함
 	try
 	{
 		(void) dynamic_cast<A&>(p);
