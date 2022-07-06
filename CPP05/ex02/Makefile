@@ -6,7 +6,7 @@
 #    By: seongele <seongele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 00:39:39 by seongele          #+#    #+#              #
-#    Updated: 2022/07/06 17:27:21 by seongele         ###   ########.fr        #
+#    Updated: 2022/07/06 21:37:11 by seongele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ clean :
 	@printf "${FG_GREEN}clean!\n${NO_COLOR}"
 
 fclean : clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) home_shrubbery
 	@printf "${FG_GREEN}fclean!\n${NO_COLOR}"
 
 re : fclean all
