@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 05:17:22 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/18 05:17:22 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 20:09:46 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ int main()
 
 		std::cout << "\n********** copy after Dog 2's brain **********" << std::endl;
 		*dog2 = *dog1;
+		dog1->setBrain("change!!!!!!!!!!!!!");
+		std::cout << "\n********** Dog 1's brain **********" << std::endl;
+		dog1->printBrain();
+		std::cout << "\n********** Dog 2's brain **********" << std::endl;
 		dog2->printBrain();
 
 		std::cout << "\n========== Dog Destroy! ==========" << std::endl;
