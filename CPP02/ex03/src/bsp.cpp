@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 20:43:19 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/07 20:43:19 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:54:06 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	int aa = calcTriangle(point, b, c);
 	int bb = calcTriangle(a, point, c);
 	int cc = calcTriangle(a, b, point);
-	if (!aa || !bb || !cc)
-		return false;
+
 	return target == aa + bb + cc;
 }
