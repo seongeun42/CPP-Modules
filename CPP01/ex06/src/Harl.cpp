@@ -50,11 +50,16 @@ void Harl::complain(std::string level)
 {
 	void(Harl:: *func[4])() = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error };
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int idx = 0;
+	int idx = -1;
 
-	for (idx; i < 4; idx++)
+	for (int i = 0; i < 4; i++)
+	{
 		if (level == levels[i])
+		{
+			idx = i;
 			break;
+		}
+	}
 
 	switch (idx)
 	{
