@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 02:56:34 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/18 02:56:34 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:23:07 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("nonamed_dia")
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("nonamed")
 {
 	std::cout << "DiamondTrap Default Constructor called : " << name_ << std::endl;
-	ClapTrap::name_ += "_clap";
+	ClapTrap::name_ += "_clap_name";
 	hit_ = FragTrap::hit_;
 	energy_ = ScavTrap::energy_;
 	damage_ = FragTrap::damage_;
@@ -25,7 +25,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("nonamed_
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(), FragTrap(), name_(name)
 {
 	std::cout << "DiamondTrap Constructor for name called : " << name_ << std::endl;
-	ClapTrap::name_ += "_clap";
+	ClapTrap::name_ += "_clap_name";
 	hit_ = FragTrap::hit_;
 	energy_ = ScavTrap::energy_;
 	damage_ = FragTrap::damage_;
