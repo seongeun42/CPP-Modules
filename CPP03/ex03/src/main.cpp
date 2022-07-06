@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 20:43:44 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/16 20:43:44 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 19:26:06 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,6 @@ int main()
 		dia_two.printStatus();
 
 		std::cout << "\n** whoAmI 테스트 **" << std::endl;
-		dia_one.whoAmI();
 		dia_one.whoAmI();
 		dia_two.whoAmI();
 
