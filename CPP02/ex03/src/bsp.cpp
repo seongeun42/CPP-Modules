@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 20:43:19 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/06 13:54:06 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:49:04 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	int bb = calcTriangle(a, point, c);
 	int cc = calcTriangle(a, b, point);
 
+	// 꼭짓점이나 선 위의 점일 때 false
+	if (!aa || !bb || !cc)
+		return false;
 	return target == aa + bb + cc;
 }

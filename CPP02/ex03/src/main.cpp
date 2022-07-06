@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 15:58:00 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/06 13:56:18 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/06 15:49:17 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,29 @@ int main()
 	std::cout << "\n\n***** 삼각형 내부의 점 판별 함수 bsp 테스트 *****\n";
 
 	Point e(0, 0);
-	Point target1(2, 1);
+	Point target1(1, 2);
 	Point target2(5, 1);
+	Point target3(0, 1);
 
 	std::cout << "(0, 0), (4, 0), (0, 4)를 꼭짓점으로 가지는 삼각형이 있을 때,\n";
+	
+	// 삼각형 내부
 	if (bsp(e, b, c, target1))
 		std::cout << target1 << "은 삼각형 내부의 점입니다!\n";
 	else
 		std::cout << target1 << "은 삼각형 내부의 점이 아닙니다!\n";
 
+	// 삼각형 외부
 	if (bsp(e, b, c, target2))
 		std::cout << target2 << "은 삼각형 내부의 점입니다!\n";
 	else
 		std::cout << target2 << "은 삼각형 내부의 점이 아닙니다!\n";
+	
+	// 선 위
+	if (bsp(e, b, c, target3))
+		std::cout << target3 << "은 삼각형 내부의 점입니다!\n";
+	else
+		std::cout << target3 << "은 삼각형 내부의 점이 아닙니다!\n";
 	
 	return 0;
 }
