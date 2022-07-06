@@ -28,7 +28,7 @@ all : $(NAME)
 	@printf "ptr_and_ref is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}ptr_and_ref make success!\n${NO_COLOR}"
 
 clean :

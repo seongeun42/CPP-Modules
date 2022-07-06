@@ -6,7 +6,7 @@
 #    By: seongele <seongele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 00:39:39 by seongele          #+#    #+#              #
-#    Updated: 2022/06/18 12:27:43 by seongele         ###   ########.fr        #
+#    Updated: 2022/07/06 17:26:54 by seongele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ all : $(NAME)
 	@printf "abstract is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}abstract make success!\n${NO_COLOR}"
 
 clean :

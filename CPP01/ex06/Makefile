@@ -29,7 +29,7 @@ all : $(NAME)
 	@printf "harlFilter is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}harlFilter make success!\n${NO_COLOR}"
 
 clean :

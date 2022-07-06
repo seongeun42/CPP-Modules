@@ -29,7 +29,7 @@ all : $(NAME)
 	@printf "recreate is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}recreate make success!\n${NO_COLOR}"
 
 clean :

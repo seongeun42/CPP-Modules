@@ -31,7 +31,7 @@ all : $(NAME)
 	@printf "weapon is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}weapon make success!\n${NO_COLOR}"
 
 clean :

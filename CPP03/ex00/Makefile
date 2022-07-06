@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: seongele <seongele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/15 00:39:39 by seongele          #+#    #+#              #
-#    Updated: 2022/06/15 00:39:39 by seongele         ###   ########.fr        #
+#    Updated: 2022/07/06 17:26:30 by seongele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all : $(NAME)
 	@printf "claptrap is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}claptrap make success!\n${NO_COLOR}"
 
 clean :

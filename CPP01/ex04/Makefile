@@ -28,7 +28,7 @@ all : $(NAME)
 	@printf "replace is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}replace make success!\n${NO_COLOR}"
 
 clean :

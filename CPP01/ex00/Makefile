@@ -31,7 +31,7 @@ all : $(NAME)
 	@printf "zombie is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}zombie make success!\n${NO_COLOR}"
 
 clean :

@@ -6,7 +6,7 @@
 #    By: seongele <seongele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/18 15:57:58 by seongele          #+#    #+#              #
-#    Updated: 2022/05/18 15:57:58 by seongele         ###   ########.fr        #
+#    Updated: 2022/07/06 17:24:03 by seongele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ all : $(NAME)
 	@printf "BSP is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}BSP make success!\n${NO_COLOR}"
 
 clean :

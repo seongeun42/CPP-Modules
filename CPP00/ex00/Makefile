@@ -6,7 +6,7 @@
 #    By: seongele <seongele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/18 15:50:41 by seongele          #+#    #+#              #
-#    Updated: 2022/05/18 15:50:42 by seongele         ###   ########.fr        #
+#    Updated: 2022/07/06 17:25:56 by seongele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all : $(NAME)
 	@printf "megaphone is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}megaphone make success!\n${NO_COLOR}"
 
 clean :

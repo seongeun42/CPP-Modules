@@ -30,7 +30,7 @@ all : $(NAME)
 	@printf "zombieHorde is making...\n"
 
 $(NAME) : $(OBJS)
-	@$(CXX) $(CXXFLAG) -o $@ $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $(OBJS)
 	@printf "${FG_LBLUE}zombieHorde make success!\n${NO_COLOR}"
 
 clean :
