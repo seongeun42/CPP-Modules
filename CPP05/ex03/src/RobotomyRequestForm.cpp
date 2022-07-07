@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 01:39:22 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/07 15:05:41 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:30:34 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("rrf", R_SIGN, R_EXEC), target_("default")
 {
+	std::cout << "RobotomyRequestForm Default Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : Form("rrf", R_SIGN, R_EXEC), target_(target)
 {
+	std::cout << "RobotomyRequestForm Target Constructor called : " << target_ << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& rrf) : Form(rrf), target_(rrf.getTarget())
 {
+	std::cout << "RobotomyRequestForm Copy Constructor called" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
+	std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rrf)

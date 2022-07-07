@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:40:43 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/28 16:40:43 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:25:08 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int main()
 	intern.makeForm("nothing", "Babo");
 
 	std::cout << "\n\e[32m========== 인턴 성공 테스트 ==========\e[0m" << std::endl;
-	rrf = intern.makeForm("robotomy request", "Babo");
+	rrf = intern.makeForm("robotomy request", "Bender");
 	ppf = intern.makeForm("presidential pardon", "Babo");
-	scf = intern.makeForm("shrubbery creation", "Babo");
+	scf = intern.makeForm("shrubbery creation", "Cera");
 
 	std::cout << std::endl;
+	
 	delete rrf;
 	delete ppf;
 	delete scf;

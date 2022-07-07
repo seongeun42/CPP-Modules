@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 01:39:41 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/07 15:05:53 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:30:26 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : Form("ppf", P_SIGN, P_EXEC), target_("default")
 {
+	std::cout << "PresidentialPardonForm Default Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : Form("ppf", P_SIGN, P_EXEC), target_(target)
 {
+	std::cout << "PresidentialPardonForm Target Constructor called : " << target_ << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& ppf) : Form(ppf), target_(ppf.getTarget())
 {
+	std::cout << "PresidentialPardonForm Copy Constructor called" << std::endl;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
+	std::cout << "PresidentialPardonForm Destructor called" << std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& ppf)
