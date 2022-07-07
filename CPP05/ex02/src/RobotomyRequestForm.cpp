@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 01:39:22 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/29 01:39:22 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:05:41 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,13 @@ const std::string& RobotomyRequestForm::getTarget() const
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) const
 {
-	try
-	{
-		isExecutable(executor);
+	this->isExecutable(executor);
 
-		std::cout << "Drrrrrrrriiiiiillllllllllll.............. (50\% processing)" << std::endl;
-		srand(time(NULL));
-		int success = rand() % 100;
-		if (success < 50)
-			std::cout << "\e[31m💥 " << target_ << " failed to robotize!\e[0m" << std::endl;
-		else
-			std::cout << "\e[32m💐 " << target_ << " successfully robotized!\e[0m" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "\e[31mRobotomyRequestForm execution failed because " << e.what() << "\e[0m" << std::endl;
-		return;
-	}
+	std::cout << "Drrrrrrrriiiiiillllllllllll.............. (50\% processing)" << std::endl;
+	srand(time(NULL));
+	int success = rand() % 100;
+	if (success < 50)
+		std::cout << "\e[31m💥 " << target_ << " failed to robotize!\e[0m" << std::endl;
+	else
+		std::cout << "\e[32m💐 " << target_ << " successfully robotized!\e[0m" << std::endl;
 }

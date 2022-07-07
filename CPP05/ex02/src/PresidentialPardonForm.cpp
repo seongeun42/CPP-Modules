@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 01:39:41 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/29 01:39:41 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:05:53 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,6 @@ const std::string& PresidentialPardonForm::getTarget() const
 
 void PresidentialPardonForm::execute(Bureaucrat const& executor) const
 {
-	try
-	{
-		isExecutable(executor);
-		std::cout << "\e[32m" << target_ << " has been pardoned by Zaphod Beeblebrox.\e[0m" << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "\e[31mPresidentialPardonForm execution failed because " << e.what() << "\e[0m" << std::endl;
-		return;
-	}
+	this->isExecutable(executor);
+	std::cout << "\e[32m" << target_ << " has been pardoned by Zaphod Beeblebrox.\e[0m" << std::endl;
 }

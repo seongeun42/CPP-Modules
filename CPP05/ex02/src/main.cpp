@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:40:43 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/28 16:40:43 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:11:17 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ int main()
 	PresidentialPardonForm pf("You");
 
 	std::cout << "\n\e[31m========== ShrubberyCreationForm 실패 테스트 ==========\e[0m" << std::endl;
-	sf.execute(s);	// 사인 되지 않은 상태라 실패
-	sf.beSigned(s);
-	sf.execute(n);	// 실행 권한 등급보다 낮아서 실패
+	s.executeForm(sf); // 사인 되지 않은 상태라 실패
+	s.signForm(sf);
+	n.executeForm(sf);	// 실행 권한 등급보다 낮아서 실패
 
 	std::cout << "\n\e[32m========== ShrubberyCreationForm 성공 테스트 ==========\e[0m" << std::endl;
-	sf.execute(s);	// 성공
+	s.executeForm(sf);	// 성공
 
 	std::cout << "\n\e[31m========== RobotomyRequestForm 실패 테스트 ==========\e[0m" << std::endl;
-	rf.execute(r);	// 사인 되지 않은 상태라 실패
-	rf.beSigned(r);
-	rf.execute(n);	// 실행 권한 등급보다 낮아서 실패
+	r.executeForm(rf);	// 사인 되지 않은 상태라 실패
+	r.signForm(rf);
+	n.executeForm(rf);	// 실행 권한 등급보다 낮아서 실패
 
 	std::cout << "\n\e[32m========== RobotomyRequestForm 성공 테스트 ==========\e[0m" << std::endl;
-	rf.execute(r);
+	r.executeForm(rf);
 
 	std::cout << "\n\e[31m========== PresidentialPardonForm 실패 테스트 ==========\e[0m" << std::endl;
-	pf.execute(p);	// 사인 되지 않은 상태라 실패
-	pf.beSigned(p);
-	pf.execute(n);	// 실행 권한 등급보다 낮아서 실패
+	p.executeForm(pf);	// 사인 되지 않은 상태라 실패
+	p.signForm(pf);
+	n.executeForm(pf);	// 실행 권한 등급보다 낮아서 실패
 
 	std::cout << "\n\e[32m========== PresidentialPardonForm 성공 테스트 ==========\e[0m" << std::endl;
-	pf.execute(p);
+	p.executeForm(pf);
 
 	std::cout << std:: endl;
 
