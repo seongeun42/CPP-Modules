@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 01:39:27 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/29 01:39:27 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:05:26 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,44 +45,36 @@ const std::string& ShrubberyCreationForm::getTarget() const
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
-	try
-	{
-		isExecutable(executor);
+	this->isExecutable(executor);
 		
-		std::ofstream ofs;
-		std::string file = target_ + "_shrubbery";
-		ofs.open(file.c_str(), std::ios::out | std::ios::trunc);
-		if (ofs.fail())
-		{
-			std::cerr << "\e[31m" << target_ << "_shrubbery open failed!\e[0m" << std::endl;
-			return;
-		}
-
-		std::string tree = "          .     .  .      +     .      .          .\n"
-							"     .       .      .     #       .           .\n"
-							"        .      .         ###            .      .      .\n"
-							"      .      .   \"#:. .:##\"##:. .:#\"  .      .\n"
-							"          .      . \"####\"###\"####\"  .\n"
-							"       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n"
-							"  .             \"#########\"#########\"        .        .\n"
-							"        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n"
-							"     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n"
-							"                .\"##\"#####\"#####\"##\"           .      .\n"
-							"    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n"
-							"      .     \"#######\"##\"#####\"##\"#######\"      .     .\n"
-							"    .    .     \"#####\"\"#######\"\"#####\"    .      .\n"
-							"            .     \"      000      \"    .     .\n"
-							"       .         .   .   000     .        .       .\n"
-							".. .. ..................O000O........................ ...... ...\n";
-
-		ofs << tree;
-		ofs.close();
-
-		std::cout << "\e[32mShrubberyCreationForm planted tree on the " << target_ << ".\e[0m" << std::endl;
-	}
-	catch (std::exception& e)
+	std::ofstream ofs;
+	std::string file = target_ + "_shrubbery";
+	ofs.open(file.c_str(), std::ios::out | std::ios::trunc);
+	if (ofs.fail())
 	{
-		std::cout << "\e[31mShrubberyCreationForm execution failed because " << e.what() << "\e[0m" << std::endl;
+		std::cerr << "\e[31m" << target_ << "_shrubbery open failed!\e[0m" << std::endl;
 		return;
 	}
+
+	std::string tree = "          .     .  .      +     .      .          .\n"
+						"     .       .      .     #       .           .\n"
+						"        .      .         ###            .      .      .\n"
+						"      .      .   \"#:. .:##\"##:. .:#\"  .      .\n"
+						"          .      . \"####\"###\"####\"  .\n"
+						"       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n"
+						"  .             \"#########\"#########\"        .        .\n"
+						"        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n"
+						"     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n"
+						"                .\"##\"#####\"#####\"##\"           .      .\n"
+						"    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n"
+						"      .     \"#######\"##\"#####\"##\"#######\"      .     .\n"
+						"    .    .     \"#####\"\"#######\"\"#####\"    .      .\n"
+						"            .     \"      000      \"    .     .\n"
+						"       .         .   .   000     .        .       .\n"
+						".. .. ..................O000O........................ ...... ...\n";
+
+	ofs << tree;
+	ofs.close();
+
+	std::cout << "\e[32mShrubberyCreationForm planted tree on the " << target_ << ".\e[0m" << std::endl;
 }

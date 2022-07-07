@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:40:36 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/28 16:40:36 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 15:08:02 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,20 @@ void Bureaucrat::signForm(Form& form) const
 		std::cerr << name_ << " couldn’t sign " << form.getName() << " because " << e.what() << "." << std::endl;
 	}
 }
+
+void Bureaucrat::executeForm(Form& form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << name_ << " executed " << form.getName() << "." << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << name_ << " couldn’t executed " << form.getName() << " because " << e.what() << "." << std::endl;
+	}
+}
+
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {

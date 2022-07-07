@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 16:40:23 by seongele          #+#    #+#             */
-/*   Updated: 2022/06/28 16:40:23 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:51:49 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ public:
 	void decrementGrade();
 
 	void signForm(Form& form) const;
+	void executeForm(Form& form) const;
 
 	class GradeTooHighException : public std::exception
 	{
