@@ -6,13 +6,13 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 02:56:34 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/06 19:23:07 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:38:49 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("nonamed")
+DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), name_("nonamed")
 {
 	std::cout << "DiamondTrap Default Constructor called : " << name_ << std::endl;
 	ClapTrap::name_ += "_clap_name";
@@ -22,7 +22,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(), name_("nonamed"
 	max_hp_ = 100;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(), FragTrap(), name_(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTrap(), name_(name)
 {
 	std::cout << "DiamondTrap Constructor for name called : " << name_ << std::endl;
 	ClapTrap::name_ += "_clap_name";
@@ -32,7 +32,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(), FragTra
 	max_hp_ = 100;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& dt) : ClapTrap(dt), ScavTrap(dt), FragTrap(dt)
+DiamondTrap::DiamondTrap(const DiamondTrap& dt) : ClapTrap(dt), FragTrap(dt), ScavTrap(dt)
 {
 	std::cout << "DiamondTrap Copy Constructor called : " << dt.name_ << std::endl;
 	*this = dt;
