@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 02:25:22 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/08 15:37:10 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:11:28 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+
+#define FRAG_ATTACK_DAMAGE 30
 
 class FragTrap: virtual public ClapTrap
 {

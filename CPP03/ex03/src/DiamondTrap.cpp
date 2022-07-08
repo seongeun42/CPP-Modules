@@ -6,7 +6,7 @@
 /*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 02:56:34 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/08 15:38:49 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:12:51 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap(), name_("nonamed"
 	ClapTrap::name_ += "_clap_name";
 	hit_ = FragTrap::hit_;
 	energy_ = ScavTrap::energy_;
-	damage_ = FragTrap::damage_;
+	damage_ = FRAG_ATTACK_DAMAGE;
 	max_hp_ = 100;
 }
 
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(), ScavTra
 	ClapTrap::name_ += "_clap_name";
 	hit_ = FragTrap::hit_;
 	energy_ = ScavTrap::energy_;
-	damage_ = FragTrap::damage_;
+	damage_ = FRAG_ATTACK_DAMAGE;
 	max_hp_ = 100;
 }
 
