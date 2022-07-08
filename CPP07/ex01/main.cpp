@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongele <seongele@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: seongele <seongele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 15:51:48 by seongele          #+#    #+#             */
-/*   Updated: 2022/07/02 15:51:48 by seongele         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:35:09 by seongele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "iter.hpp"
 
 template <typename T>
-void print(T& v)
+void print(const T& v)
 {
 	std::cout << v << " ";
 }
